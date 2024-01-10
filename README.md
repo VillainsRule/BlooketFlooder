@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Blooket Flooder</h1>
-  <h3>a quick & simple blooket flooder.</h3>
+  <h3>a speedy blooket flooder promising fun results.</h3>
 </div>
 
 <br>
@@ -23,6 +23,13 @@ this literally took me 30 minutes, expect bugs.
 
 any reprocussions coming from usage of this tool aren't my fault or my issue, so don't bug me.<br>
 i'd recommend using a vpn when spamming Blooket's API.
+
+<br>
+<h2 align="center">speed</h2>
+
+i tried to make the tool as speedy as possible with promises and threading, but there seemed to be issues every method i tried.<br>
+ratelimiting seems to be a problem and i don't want to add proxies to this tool.<br>
+if someone finds a successful method, please open a PR and share!
 
 <br>
 <h2 align="center">credit</h2>
