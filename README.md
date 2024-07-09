@@ -27,9 +27,8 @@ i'd recommend using a vpn when spamming Blooket's API.
 <br>
 <h2 align="center">speed</h2>
 
-i tried to make the tool as speedy as possible with promises and threading, but there seemed to be issues every method i tried.<br>
-ratelimiting seems to be a problem and i don't want to add proxies to this tool.<br>
-if someone finds a successful method, please open a PR and share!
+firebase has a native JS sdk which we use to connect, which doesn't support proxies (for "security reasons").<br>
+if someone finds some fork that does, pls open an [issue](https://github.com/VillainsRule/BlooketFlooder/issues) or [pr](https://github.com/VillainsRule/BlooketFlooder/pulls).
 
 <br>
 <h2 align="center">credit</h2>
