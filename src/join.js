@@ -5,23 +5,11 @@ import { getDatabase, ref, set } from 'firebase/database';
 import chalk from 'chalk';
 
 import select from './blooks.js';
-import bsid from './bsid.js';
 
 export default async (id, name) => {
     try {
-        let joinResult = await axios.put('https://fb.blooket.com/c/firebase/join', {
-            id,
-            name
-        }, {
-            headers: {
-                cookie: await bsid()
-            }
-        });
-
-        if (!joinResult.data.success) return {
-            success: false,
-            error: joinResult.data
-        };
+        let joinResult = await axios.put('https://fb.blooket.com/c/firebase/join', { id, name });
+        if (!joinResult.data.success) console.log(`Join Error:`, joinResult.data);
 
         let selectedBlook = select();
 
@@ -43,7 +31,9 @@ export default async (id, name) => {
         await set(ref(db, `${id}/c/${name}`), { b: selectedBlook });
 
         console.log(chalk.hex('#149414')(`\t\t${name}: joined with blook ${selectedBlook}!`));
+        return 2;
     } catch (err) {
         console.log(chalk.hex('#149414')(`\t\t${name}: failed to join :(`));
+        return 1;
     };
 };

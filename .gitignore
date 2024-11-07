@@ -1,3 +1,6 @@
-node_modules/
-package-lock.json
+# node stuff
+node_modules
+bun.lockb
+
+# mac cnf
 .DS_Store
