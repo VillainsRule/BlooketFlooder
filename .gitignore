@@ -1,6 +1,9 @@
-# node stuff
+# modules
 node_modules
-bun.lockb
+bun.lock
+
+# cookies
+.cookie
 
 # mac cnf
 .DS_Store

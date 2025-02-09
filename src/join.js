@@ -1,15 +1,19 @@
 import axios from 'axios';
+import chalk from 'chalk';
+
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
-import chalk from 'chalk';
 
 import select from './blooks.js';
 
-export default async (id, name) => {
+export default async (id, name, cb) => {
     try {
         let joinResult = await axios.put('https://fb.blooket.com/c/firebase/join', { id, name });
-        if (!joinResult.data.success) console.log(`Join Error:`, joinResult.data);
+        if (!joinResult.data.success && joinResult.data.msg) {
+            console.log(chalk.hex('#149414')(`\t\t${name}: failed to join with reason "${joinResult.data.msg}"`));
+            return cb(1);
+        }
 
         let selectedBlook = select();
 
@@ -31,9 +35,9 @@ export default async (id, name) => {
         await set(ref(db, `${id}/c/${name}`), { b: selectedBlook });
 
         console.log(chalk.hex('#149414')(`\t\t${name}: joined with blook ${selectedBlook}!`));
-        return 2;
+        cb(2);
     } catch (err) {
         console.log(chalk.hex('#149414')(`\t\t${name}: failed to join :(`));
-        return 1;
+        cb(1);
     };
 };
