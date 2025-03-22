@@ -31,7 +31,8 @@ for (let i = 1; i <= config.amount; i++) {
             console.log(`\n${success} bots joined!`);
             console.log(`${fail} bots failed to join.\n`);
 
-            process.exit(0);
+            console.log('this program will stay alive forever to keep the bots online.');
+            console.log('process control (win) or command (mac) + c to remove the bots.');
         }
     });
 
