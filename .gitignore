@@ -2,8 +2,8 @@
 node_modules
 bun.lock
 
-# cookies
-.cookie
+# data
+common/.cookie
 
 # mac cnf
 .DS_Store

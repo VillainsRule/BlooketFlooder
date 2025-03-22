@@ -4,36 +4,34 @@
 </div>
 
 <br>
-<h2 align="center">installation</h2>
 
-1. install [bun](https://bun.sh)
+## installation
+bit hard, but oh well.
+
+### prerequisites
+if you are on a linux system, you will have to install xvfb using `sudo apt-get install xvfb`. this is a dependency of [puppeteer-real-browser](https://github.com/ZFC-Digital/puppeteer-real-browser), which is used to bypass one of the multiple antibots. otherwise, skip this step
+
+### common instructions
+1. install [nodejs](https://nodejs.org)
 2. clone the repo: `git clone https://github.com/VillainsRule/BlooketFlooder && cd BlooketFlooder`
-3. install dependencies: `bun i`
-4. run it! `bun .`
+3. install dependencies: `npm i`
 
-if you are on a linux system, you will have to install xvfb using `sudo apt-get install xvfb`.<br>
-this is a dependency of [puppeteer-real-browser](https://github.com/ZFC-Digital/puppeteer-real-browser), which is used to bypass the antibot.
+### normal modes
+normal mode is all games not tagged as beta (so everything except "laser" atm).<br>
+to run normal, the command is `node normal` or `node .` - no added setup is required
+
+### beta modes
+if you are trying to join a game that is "BETA" (so just laser atm), the command is `node beta`<br>
+this has a refreshed and overhauled interface with interactive inputs that look much nicer.
 
 eventually this might be open to use as a web app. we'll see!
 
 <br>
-<h2 align="center">bug reports</h2>
 
+## bug reports
 use the [issues](https://github.com/VillainsRule/BlooketFlooder/issues) tab.<br>
 explain as much of the issue as possible, and send screenshots.<br>
 blooket patches these things sometimes, it can happen.
-
-<br>
-<h2 align="center">speed</h2>
-
-firebase has a native JS sdk which the program uses to connect to games, which doesn't support proxies (for "security reasons").<br>
-if someone finds some fork that does, pls open an [issue](https://github.com/VillainsRule/BlooketFlooder/issues) or [pr](https://github.com/VillainsRule/BlooketFlooder/pulls).
-
-<br>
-<h2 align="center">credit</h2>
-
-i stole the firebase join info from [konz](https://gitlab.com/blooket).<br>
-other than that bit, i coded the entire thing =D.
 
 <br><br>
 <h5 align="center">made with ❤️ by VillainsRule</h5>
