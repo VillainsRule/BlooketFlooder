@@ -9,7 +9,14 @@
 bit hard, but oh well.
 
 ### prerequisites
-if you are on a linux system, you will have to install xvfb using `sudo apt-get install xvfb`. this is a dependency of [puppeteer-real-browser](https://github.com/ZFC-Digital/puppeteer-real-browser), which is used to bypass one of the multiple antibots. otherwise, skip this step
+> [!NOTE]
+> you must be running the script in an environment that allows you to open, close, and manipulate windows.<br>
+> examples of valid environments: desktop macos, desktop windows, most linux distros<br>
+> examples of invalid environments: github codespaces, codesandbox, codeanywhere (NONE OF THESE HAVE ACTUAL WINDOWS)
+
+> [!IMPORTANT]
+> **LINUX USERS:**<br>
+> you must install xvfb: `sudo apt-get install xvfb`
 
 ### common instructions
 1. install [nodejs](https://nodejs.org)
@@ -18,20 +25,20 @@ if you are on a linux system, you will have to install xvfb using `sudo apt-get 
 
 ### normal modes
 normal mode is all games not tagged as beta (so everything except "laser" atm).<br>
-to run normal, the command is `node normal` or `node .` - no added setup is required
+run this using: `node normal` OR `node .`
 
 ### beta modes
-if you are trying to join a game that is "BETA" (so just laser atm), the command is `node beta`<br>
-this has a refreshed and overhauled interface with interactive inputs that look much nicer.
+if you are trying to join a game that is "BETA" (so just laser atm)<br>
+run this using: `node beta`
 
-eventually this might be open to use as a web app. we'll see!
+the odds this becomes a web app are very small. maybe someday!
 
 <br>
 
 ## bug reports
 use the [issues](https://github.com/VillainsRule/BlooketFlooder/issues) tab.<br>
-explain as much of the issue as possible, and send screenshots.<br>
-blooket patches these things sometimes, it can happen.
+it is helpful to assume that you are always the issue rather than an anticheat.<br>
+following this logic, you should try to explain as much as possible with a couple screenshots.
 
 <br><br>
-<h5 align="center">made with ❤️ by VillainsRule</h5>
+<h5 align="center">made with ❤️ + :trollface: by VillainsRule</h5>
