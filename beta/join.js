@@ -20,7 +20,10 @@ export default async (config, i, cb) => {
         formData.append('0', JSON.stringify([config.pin, { message: '' }, '$K1']));
 
         let redirect = await axios.post(`https://play.blooket.com/play?id=${config.pin}`, formData, {
-            headers: { 'next-action': '5140d9c38b14cac886fa554034a9c5fd90dae622' },
+            headers: {
+                'next-action': '5140d9c38b14cac886fa554034a9c5fd90dae622',
+                cookie: cookies
+            },
             validateStatus: (status) => status == 303 || status == 200
         });
 
@@ -33,8 +36,13 @@ export default async (config, i, cb) => {
 
         let urlParts = url.split('/');
 
-        let joinResult = await axios.post('https://laser.blooket.com/matchmake/joinById/' + urlParts[3], {}, {
-            headers: { Authorization: `Bearer ${urlParts[5]}` }
+        let joinResult = await axios.post(`https://${urlParts[2]}/matchmake/joinById/${urlParts[3]}`, {}, {
+            headers: {
+                ...headers,
+                Authorization: `Bearer ${urlParts[5]}`,
+                Cookie: cookies,
+                Referer: url
+            }
         });
 
         let creds = joinResult.data;

@@ -1,6 +1,6 @@
 {
     "name": "blooketflooder",
-    "main": "src/normal.js",
+    "main": "normal/index.js",
     "type": "module",
     "dependencies": {
         "axios": "^1",

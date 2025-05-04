@@ -24,11 +24,11 @@ bit hard, but oh well.
 3. install dependencies: `npm i`
 
 ### normal modes
-normal mode is all games not tagged as beta (so everything except "laser" atm).<br>
+normal mode is all games not tagged as beta (everything created in 2024 and earlier).<br>
 run this using: `node normal` OR `node .`
 
 ### beta modes
-if you are trying to join a game that is "BETA" (so just laser atm)<br>
+if you are trying to join a game that is tagged as "BETA" (most 2025 gamemodes)<br>
 run this using: `node beta`
 
 the odds this becomes a web app are very small. maybe someday!
