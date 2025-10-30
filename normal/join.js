@@ -11,7 +11,7 @@ export default async (id, name, cb) => {
     try {
         let joinResult = await axios.put('https://fb.blooket.com/c/firebase/join', { id, name });
         if (!joinResult.data.success && joinResult.data.msg) {
-            console.log(chalk.hex('#149414')(`\t\t${name}: failed to join with reason "${joinResult.data.msg}"`));
+            console.log(chalk.hex('#149414')(`${name}: failed to join with reason "${joinResult.data.msg}"`));
             return cb(1);
         }
 
@@ -34,10 +34,10 @@ export default async (id, name, cb) => {
         const db = getDatabase();
         await set(ref(db, `${id}/c/${name}`), { b: selectedBlook });
 
-        console.log(chalk.hex('#149414')(`\t\t${name}: joined with blook ${selectedBlook}!`));
+        console.log(chalk.hex('#149414')(`${name}: joined with blook ${selectedBlook}!`));
         cb(2);
     } catch (err) {
-        console.log(chalk.hex('#149414')(`\t\t${name}: failed to join :(`));
+        console.log(chalk.hex('#149414')(`${name}: failed to join :(`));
         cb(1);
     };
 };

@@ -1,9 +1,11 @@
-console.log('Similar to Blooket, this botting is Beta.');
-console.log('If you encounter any issues, please report them to the GitHub repository.');
-console.log('You may see an unusual amount of debug logs, this is normal given the circumstances.');
-console.log('If something goes wrong, please copy these full logs onto Github issues.\n');
-
+import chalk from 'chalk';
 import enquirer from 'enquirer';
+
+console.log(chalk.hex('#ffff00')('blooketflooder (legacy modes) free\n'));
+console.log(chalk.hex('#bf00ff')('✨ contact @thkxz on discrd for blooketflooder premium!'));
+console.log(chalk.hex('#bf00ff')('  - 100% cloudflare bypass (no popup windows)'));
+console.log(chalk.hex('#bf00ff')('  - instant join'));
+console.log(chalk.hex('#bf00ff')('  - always working\n'));
 
 import join from './join.js';
 
@@ -23,18 +25,18 @@ let success = 0;
 let fail = 0;
 
 for (let i = 1; i <= config.amount; i++) {
-    join(config, i, (result) => {
-        if (result == 2) success++;
-        else fail++;
+    const result = await join(config, i);
 
-        if (success + fail == config.amount) {
-            console.log(`\n${success} bots joined!`);
-            console.log(`${fail} bots failed to join.\n`);
+    if (result == 2) success++;
+    else fail++;
 
-            console.log('this program will stay alive forever to keep the bots online.');
-            console.log('process control (win) or command (mac) + c to remove the bots.');
-        }
-    });
+    if (success + fail == config.amount) {
+        console.log(`\n${success} bots joined!`);
+        console.log(`${fail} bots failed to join.\n`);
 
-    await new Promise((r) => setTimeout(r, 200));
+        console.log('this program will stay alive forever to keep the bots online.');
+        console.log('process control (win) or command (mac) + c to remove the bots.');
+    }
+
+    await new Promise(r => setTimeout(r, 677));
 }

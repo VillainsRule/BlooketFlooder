@@ -8,40 +8,47 @@ import { headers } from '../common/init.js';
 
 const cookieFile = path.join(import.meta.dirname, '..', 'common', '.cookie');
 
-export default async (config, i, cb) => {
+export default async (config, i) => new Promise(async (r) => {
     let name = config.name + (i == 1 ? '' : i);
 
     try {
         const cookies = fs.readFileSync(cookieFile, 'utf-8');
 
+        const actionKeyReq = await axios.get(`https://play.blooket.com/play?id=${config.pin}`, {
+            headers: {
+                ...headers,
+                cookie: cookies
+            }
+        });
+
+        const nextAction = actionKeyReq.data.match(/<input type="hidden" name="\$ACTION_1:0" value="\{&quot;id&quot;:&quot;(.*?)&quot;,&quot;bound&quot;:&quot;\$@1&quot;\}"/)?.[1];
+        const nameField = actionKeyReq.data.match(/maxLength="15" autofocus="" name="(.*?)"/)?.[1];
+
         const formData = new FormData();
 
-        formData.append('1_nickname', name);
-        formData.append('0', JSON.stringify([config.pin, { message: '' }, '$K1']));
+        formData.append('1_' + nameField, name);
+        formData.append('1_joinCode', config.pin);
+        formData.append('0', JSON.stringify([{ status: 'UNSET', message: '', fieldErrors: {} }, '$K1']));
 
         let redirect = await axios.post(`https://play.blooket.com/play?id=${config.pin}`, formData, {
             headers: {
-                'next-action': '5140d9c38b14cac886fa554034a9c5fd90dae622',
+                'next-action': nextAction,
                 cookie: cookies
             },
             validateStatus: (status) => status == 303 || status == 200
         });
 
-        let url = redirect.headers.get('x-action-redirect');
+        const result = redirect.data.match(/message":"(.*?)"/)?.[1];
+        if (!result.includes('blooket.com')) throw new Error('got error:' + result);
 
-        if (!url) {
-            console.log('\n[DEBUG] x-action-redirect=' + url);
-            console.log('[DEBUG] data=' + JSON.stringify(redirect.data) + '\n');
-        }
-
-        let urlParts = url.split('/');
+        let urlParts = result.split('/');
 
         let joinResult = await axios.post(`https://${urlParts[2]}/matchmake/joinById/${urlParts[3]}`, {}, {
             headers: {
                 ...headers,
                 Authorization: `Bearer ${urlParts[5]}`,
                 Cookie: cookies,
-                Referer: url
+                Referer: result
             }
         });
 
@@ -56,9 +63,9 @@ export default async (config, i, cb) => {
         })
 
         console.log(`${name}: joined!`);
-        cb(2);
+        r(2);
     } catch (err) {
-        console.log(`${name}: failed to join :(`);
-        cb(1);
+        console.log(`${name}: failed to join :(`, err);
+        r(1);
     };
-};
+});

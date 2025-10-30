@@ -12,46 +12,29 @@ await init();
 let rl = readline.createInterface(process.stdin, process.stdout);
 
 let question = async (q) => new Promise(resolve => rl.question(q, resolve));
-let hex = chalk.hex('#149414');
-let write = (m) => m.includes('{t}') ? hex(m.replace('{t}', '\t\t')) : hex(`\t\t${m}`);
+let write = (m) => chalk.hex('#149414')(m);
 
-console.clear();
-console.log(hex(`\n\n\t ▄▄▄▄    ██▓     ▒█████   ▒█████   ██ ▄█▀▓█████▄▄▄█████▓        █████▒██▓     ▒█████   ▒█████  ▓█████▄ 
-\t▓█████▄ ▓██▒    ▒██▒  ██▒▒██▒  ██▒ ██▄█▒ ▓█   ▀▓  ██▒ ▓▒      ▓██   ▒▓██▒    ▒██▒  ██▒▒██▒  ██▒▒██▀ ██▌
-\t▒██▒ ▄██▒██░    ▒██░  ██▒▒██░  ██▒▓███▄░ ▒███  ▒ ▓██░ ▒░      ▒████ ░▒██░    ▒██░  ██▒▒██░  ██▒░██   █▌
-\t▒██░█▀  ▒██░    ▒██   ██░▒██   ██░▓██ █▄ ▒▓█  ▄░ ▓██▓ ░       ░▓█▒  ░▒██░    ▒██   ██░▒██   ██░░▓█▄   ▌
-\t░▓█  ▀█▓░██████▒░ ████▓▒░░ ████▓▒░▒██▒ █▄░▒████▒ ▒██▒ ░       ░▒█░   ░██████▒░ ████▓▒░░ ████▓▒░░▒████▓ 
-\t░▒▓███▀▒░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒░▒░▒░ ▒ ▒▒ ▓▒░░ ▒░ ░ ▒ ░░          ▒ ░   ░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒▒▓  ▒ 
-\t▒░▒   ░ ░ ░ ▒  ░  ░ ▒ ▒░   ░ ▒ ▒░ ░ ░▒ ▒░ ░ ░  ░   ░           ░     ░ ░ ▒  ░  ░ ▒ ▒░   ░ ▒ ▒░  ░ ▒  ▒ 
-\t ░    ░   ░ ░   ░ ░ ░ ▒  ░ ░ ░ ▒  ░ ░░ ░    ░    ░             ░ ░     ░ ░   ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░  ░ 
-\t ░          ░  ░    ░ ░      ░ ░  ░  ░      ░  ░                         ░  ░    ░ ░      ░ ░     ░    
-\t      ░                                                                                         ░      \n\n`));
+console.log(chalk.hex('#ffff00')('\nblooketflooder (legacy modes) free\n'));
+console.log(chalk.hex('#bf00ff')('✨ contact @thkxz on discrd for blooketflooder premium!'));
+console.log(chalk.hex('#bf00ff')('  - 100% cloudflare bypass (no popup windows)'));
+console.log(chalk.hex('#bf00ff')('  - instant join'));
+console.log(chalk.hex('#bf00ff')('  - always working\n'));
 
 const modes = {
     cryptohack: 'Crypto Hack',
     santasworkshop: 'Santa\'s Workshop',
-    pirate: 'Pirate\'s Voyage',
     goldquest: 'Gold Quest',
-    fishingfrenzy: 'Fishing Frenzy',
-    towerdefense2: 'Tower Defense 2',
-    monsterbrawl: 'Monster Brawl',
-    deceptivedinos: 'Deceptive Dinos',
-    battleroyale: 'Battle Royale',
-    towerdefense: 'Tower Defense',
-    cafe: 'Cafe',
-    factory: 'Factory',
-    racing: 'Racing',
-    blookrush: 'Blook Rush'
+    fishingfrenzy: 'Fishing Frenzy'
 };
 
 let gamePin = await question(write('Game Pin > '));
-console.log(write('\n{t}Fetching information...'));
+console.log(write('\nFetching information...'));
 
 let gameExists = await axios.post('https://play.blooket.com/api/playersessions/hosted', {
     gameCode: gamePin
 }).catch((e) => {
     console.log(e);
-    console.log(chalk.hex('#f00')(`\t\tError: Game pin not found.`));
+    console.log(chalk.hex('#f00')(`Error: Game pin not found.`));
     process.exit(0);
 });
 
@@ -67,7 +50,7 @@ for (const [key, value] of Object.entries(modes)) {
 
 console.log(write(`Game found! Mode: ${mode}`));
 
-let name = await question(write('\n{t}Bot Name > '));
+let name = await question(write('\nBot Name > '));
 let amount = await question(write('Bot Amount > '));
 
 console.log('\n');
@@ -80,7 +63,7 @@ for (let i = 1; i <= amount; i++) await join(gamePin, name + i, (result) => {
     else fail++;
 
     if (success + fail == amount) {
-        console.log(write(`\n{t}${success}/${fail} bots joined!\n`));
+        console.log(write(`\n${success}/${fail} bots joined!\n`));
         process.exit(0);
     }
 });s
