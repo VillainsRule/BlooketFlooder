@@ -1,19 +1,17 @@
 > [!IMPORTANT]
-> For the ✨ **PREMIUM** ✨ version of BlooketFlooder that bypasses Cloudflare natively, please contact **@thkxz** on Discord.<br>
-> With premium, you can unlock:<br>
-> - cloudflare bypass (only requests)
-> - no ratelimits
-> - proxy support
-> - always working
-> - 70% less resource consumption<br>
+> ✨ **BlooketFlooder Pro** is a better version of the public flooder on this repository. BF Pro features:<br>
+> - a 100% request-only cloudflare bypass (no popup windows, JUST requests)
+> - 0 ratelimits and full proxy support
+> - around 60 or 70% less resource usage<br>
 > 
-> and more!
+> *This does NOT cost money, it just ensures that the native Cloudflare Bypass remains unpatched for as long as possible. The*<br>
+> **DM @thkxz on Discord** to gain access!
 
-<hr>
+<br><hr><br>
 
 <div align="center">
-    <h1>Blooket Flooder</h1>
-    <h3>a fast blooket game botter that bypasses all modern antibots.</h3>
+    <h1>BlooketFlooder Basic</h1>
+    <h3>an actually working and somewhat fast blooket flooder!</h3>
 </div>
 
 <br>
@@ -26,29 +24,21 @@ bit hard, but oh well.
 > you must be running the script in an environment that allows you to open, close, and manipulate windows.<br>
 > examples of valid environments: desktop macos, desktop windows, linux with window managers<br>
 > examples of invalid environments: github codespaces, codesandbox, codeanywhere (NONE OF THESE HAVE ACTUAL WINDOWS)<br>
-> you can bypass this with premium! ✨
+> this is not required with BF pro! ✨
 
 > [!IMPORTANT]
 > **LINUX USERS:**<br>
 > you must install xvfb: `sudo apt-get install xvfb`<br>
-> you can bypass this with premium! ✨
+> this is not required with BF pro! ✨
 
 ### common instructions
-1. install [nodejs](https://nodejs.org)
+1. install [bun](https://bun.sh)
 2. clone the repo: `git clone https://github.com/VillainsRule/BlooketFlooder && cd BlooketFlooder`
-3. install dependencies: `npm i`
+3. install dependencies: `bun i`
 
-### normal modes
-normal mode is all games that haven't been recoded (currently gold quest/crypto hack/fishing frenzy)<br>
-run this using: `node normal` OR `node .`
+if you understand the concept of colyseus rewritten modes, use `bun beta` for rewritten modes and `bun legacy` for legacy modes.<br>
 
-### beta modes
-if you are trying to join a game that is not listed under normal above<br>
-run this using: `node beta`
-
-<br>
-
-if you try to make this a web app, you will probably be DDOSed, as this uses up a lot of resources on your system. go premium ✨ for lower resource consumption!
+if not, run `bun .` to get your hand held until you understand!
 
 <br>
 
@@ -58,4 +48,4 @@ it is helpful to assume that you are always the issue rather than an anticheat.<
 following this logic, you should try to explain as much as possible with a couple screenshots.
 
 <br><br>
-<h5 align="center">made with ❤️ + :trollface: by VillainsRule</h5>
+<h5 align="center">made with :trollface: by VillainsRule</h5>

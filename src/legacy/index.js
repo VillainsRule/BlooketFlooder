@@ -9,16 +9,12 @@ import init from '../common/init.js';
 
 await init();
 
+console.log(chalk.hex('#ffff00')('\nblooketflooder legacy has started!\n'));
+
 let rl = readline.createInterface(process.stdin, process.stdout);
 
 let question = async (q) => new Promise(resolve => rl.question(q, resolve));
 let write = (m) => chalk.hex('#149414')(m);
-
-console.log(chalk.hex('#ffff00')('\nblooketflooder (legacy modes) free\n'));
-console.log(chalk.hex('#bf00ff')('✨ contact @thkxz on discrd for blooketflooder premium!'));
-console.log(chalk.hex('#bf00ff')('  - 100% cloudflare bypass (no popup windows)'));
-console.log(chalk.hex('#bf00ff')('  - instant join'));
-console.log(chalk.hex('#bf00ff')('  - always working\n'));
 
 const modes = {
     cryptohack: 'Crypto Hack',

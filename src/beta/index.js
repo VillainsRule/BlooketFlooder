@@ -1,15 +1,11 @@
 import chalk from 'chalk';
 import enquirer from 'enquirer';
 
-console.log(chalk.hex('#ffff00')('blooketflooder (legacy modes) free\n'));
-console.log(chalk.hex('#bf00ff')('✨ contact @thkxz on discrd for blooketflooder premium!'));
-console.log(chalk.hex('#bf00ff')('  - 100% cloudflare bypass (no popup windows)'));
-console.log(chalk.hex('#bf00ff')('  - instant join'));
-console.log(chalk.hex('#bf00ff')('  - always working\n'));
-
 import join from './join.js';
 
 import init from '../common/init.js';
+
+console.log(chalk.hex('#ffff00')('\nblooketflooder beta has started!\n'));
 
 await init();
 

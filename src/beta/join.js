@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import axios from 'axios';
-import { WebSocket } from 'ws';
+import WebSocket from 'ws';
 
 import { headers } from '../common/init.js';
 
