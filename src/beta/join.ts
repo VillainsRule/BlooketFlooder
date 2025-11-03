@@ -4,11 +4,11 @@ import path from 'node:path';
 import axios from 'axios';
 import WebSocket from 'ws';
 
-import { headers } from '../common/init.js';
+import { headers } from '../common/init.ts';
 
 const cookieFile = path.join(import.meta.dirname, '..', 'common', '.cookie');
 
-export default async (config, i) => new Promise(async (r) => {
+export default async (config: { name: string, amount: number, pin: string }, i: number) => new Promise(async (r) => {
     let name = config.name + (i == 1 ? '' : i);
 
     try {

@@ -3,9 +3,9 @@ import axios from 'axios';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import grabCookies from './cookie.js';
+import grabCookies from './cookie.ts';
 
-export const headers = {
+export const headers: { [key: string]: string } = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'Accept-Language': 'en-US,en;q=0.9',
     'Priority': 'u=0, i',

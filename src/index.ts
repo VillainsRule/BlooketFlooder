@@ -21,8 +21,8 @@ const isUsingLegacy = await enquirer.prompt({
     name: 'is',
     message: 'my gamemode is one of the UNREWRITTEN modes listed above',
     choices: ['yes', 'no']
-});
+}) as { is: string };
 
-if (isUsingLegacy.is.startsWith('y')) import('./legacy/index.js');
-else if (isUsingLegacy.is.startsWith('n')) import('./beta/index.js');
+if (isUsingLegacy.is.startsWith('y')) import('./legacy/index.ts');
+else if (isUsingLegacy.is.startsWith('n')) import('./beta/index.ts');
 else console.log('idrk what you just put so the program has quit run it again and type yes or no next time');

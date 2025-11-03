@@ -5,9 +5,9 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 
-import select from './blooks.js';
+import select from './blooks.ts';
 
-export default async (id, name, cb) => {
+export default async (id: string, name: string, cb: (number: number) => void) => {
     try {
         let joinResult = await axios.put('https://fb.blooket.com/c/firebase/join', { id, name });
         if (!joinResult.data.success && joinResult.data.msg) {

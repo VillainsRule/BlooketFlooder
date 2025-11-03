@@ -1,4 +1,4 @@
-let blooks = [
+const blooks = [
     'Chick',
     'Chicken',
     'Cow',
@@ -265,7 +265,7 @@ let blooks = [
     'Blue'
 ];
 
-let usedBlooks = [];
+let usedBlooks: string[] = [];
 
 export default function select() {
     let blook = blooks.filter(b => !usedBlooks.includes(b))[Math.floor(Math.random() * blooks.length)];

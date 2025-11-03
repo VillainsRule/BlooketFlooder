@@ -1,19 +1,20 @@
 import chalk from 'chalk';
 import enquirer from 'enquirer';
 
-import join from './join.js';
-
-import init from '../common/init.js';
+import join from './join.ts';
+import init from '../common/init.ts';
 
 console.log(chalk.hex('#ffff00')('\nblooketflooder beta has started!\n'));
 
 await init();
 
-const config = await enquirer.prompt([
+const rawConfig = await enquirer.prompt([
     { type: 'input', name: 'pin', message: 'Game Pin' },
     { type: 'input', name: 'name', message: 'Bot Name' },
     { type: 'input', name: 'amount', message: 'Bot Amount' }
-]);
+]) as { pin: string, name: string, amount: string };
+
+const config = Object.assign({ amount: parseInt(rawConfig.amount) }, rawConfig);
 
 console.log('\n');
 
@@ -26,7 +27,7 @@ for (let i = 1; i <= config.amount; i++) {
     if (result == 2) success++;
     else fail++;
 
-    if (success + fail == config.amount) {
+    if ((success + fail) == config.amount) {
         console.log(`\n${success} bots joined!`);
         console.log(`${fail} bots failed to join.\n`);
 

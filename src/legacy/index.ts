@@ -3,9 +3,8 @@ import readline from 'node:readline';
 import axios from 'axios';
 import chalk from 'chalk';
 
-import join from './join.js';
-
-import init from '../common/init.js';
+import join from './join.ts';
+import init from '../common/init.ts';
 
 await init();
 
@@ -13,8 +12,8 @@ console.log(chalk.hex('#ffff00')('\nblooketflooder legacy has started!\n'));
 
 let rl = readline.createInterface(process.stdin, process.stdout);
 
-let question = async (q) => new Promise(resolve => rl.question(q, resolve));
-let write = (m) => chalk.hex('#149414')(m);
+let question = async (q: string): Promise<string> => new Promise(resolve => rl.question(q, resolve));
+let write = (m: string) => chalk.hex('#149414')(m);
 
 const modes = {
     cryptohack: 'Crypto Hack',
@@ -47,7 +46,8 @@ for (const [key, value] of Object.entries(modes)) {
 console.log(write(`Game found! Mode: ${mode}`));
 
 let name = await question(write('\nBot Name > '));
-let amount = await question(write('Bot Amount > '));
+let stringAmount = await question(write('Bot Amount > '));
+let amount = parseInt(stringAmount);
 
 console.log('\n');
 
@@ -62,4 +62,4 @@ for (let i = 1; i <= amount; i++) await join(gamePin, name + i, (result) => {
         console.log(write(`\n${success}/${fail} bots joined!\n`));
         process.exit(0);
     }
-});s
+});
