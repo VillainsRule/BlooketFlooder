@@ -4,8 +4,7 @@
 > - 0 ratelimits and full proxy support
 > - around 60 or 70% less resource usage<br>
 > 
-> *This does NOT cost money, it just ensures that the native Cloudflare Bypass remains unpatched for as long as possible. The*<br>
-> **DM @thkxz on Discord** to gain access!
+> *This is something that is open ONLY to other developers, which is verified on Discord. It is free. DM me: @thkxz*<br>
 
 <br><hr><br>
 
