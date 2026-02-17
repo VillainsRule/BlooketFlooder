@@ -1,20 +1,14 @@
 {
     "name": "blooketflooder",
-    "main": "src/index.ts",
+    "main": "src/index.js",
     "type": "module",
     "scripts": {
         "legacy": "bun src/legacy/index.ts",
         "beta": "bun src/beta/index.ts"
     },
     "dependencies": {
-        "axios": "^1",
-        "chalk": "^5",
         "enquirer": "^2.4.1",
-        "firebase": "^11",
-        "puppeteer-real-browser": "^1",
+        "form-data": "^4.0.4",
         "ws": "^8.18.1"
-    },
-    "devDependencies": {
-        "@types/ws": "^8.18.1"
     }
 }
