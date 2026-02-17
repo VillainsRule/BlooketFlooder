@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> ✨ **BlooketFlooder Pro** is a better version of the public flooder on this repository. BF Pro features:<br>
+> ✨ **BlooketFlooderX** is a better version of the public flooder on this repository. BFX features:<br>
 > - a 100% request-only cloudflare bypass (no popup windows, JUST requests)
 > - 0 ratelimits and full proxy support
 > - around 60 or 70% less resource usage<br>
@@ -23,12 +23,12 @@ bit hard, but oh well.
 > you must be running the script in an environment that allows you to open, close, and manipulate windows.<br>
 > examples of valid environments: desktop macos, desktop windows, linux with window managers<br>
 > examples of invalid environments: github codespaces, codesandbox, codeanywhere (NONE OF THESE HAVE ACTUAL WINDOWS)<br>
-> this is not required with BF pro! ✨
+> this is not required with BFX! ✨
 
 > [!IMPORTANT]
 > **LINUX USERS:**<br>
 > you must install xvfb: `sudo apt-get install xvfb`<br>
-> this is not required with BF pro! ✨
+> this is not required with BFX! ✨
 
 ### common instructions
 1. install [bun](https://bun.sh)
