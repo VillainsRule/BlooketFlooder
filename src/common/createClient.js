@@ -13,6 +13,8 @@ const createProxyTunnel = (origin) => {
                 return tls.connect({
                     host: proxyUrl.hostname,
                     port: parseInt(proxyUrl.port) || 443,
+                    rejectUnauthorized: false,
+                    checkServerIdentity: () => { },
                     servername: proxyUrl.hostname
                 });
             } else {
@@ -34,9 +36,7 @@ const createProxyTunnel = (origin) => {
             ];
 
             if (proxyUrl.username && proxyUrl.password) {
-                const auth = Buffer.from(
-                    `${decodeURIComponent(proxyUrl.username)}:${decodeURIComponent(proxyUrl.password)}`
-                ).toString('base64');
+                const auth = Buffer.from(`${decodeURIComponent(proxyUrl.username)}:${decodeURIComponent(proxyUrl.password)}`).toString('base64');
                 connectRequest.push(`Proxy-Authorization: Basic ${auth}`);
             }
 
@@ -47,7 +47,7 @@ const createProxyTunnel = (origin) => {
         let responseData = '';
         const onData = (data) => {
             responseData += data.toString();
-            
+
             if (responseData.includes('\r\n\r\n')) {
                 const statusLine = responseData.split('\r\n')[0];
                 const statusCode = parseInt(statusLine.split(' ')[1]);
@@ -55,10 +55,12 @@ const createProxyTunnel = (origin) => {
                 if (statusCode === 200) {
                     if (process.env.DEBUG) console.log('Proxy tunnel established to', targetUrl.hostname);
                     proxySocket.removeListener('data', onData);
-                    
+
                     const tlsSocket = tls.connect({
                         socket: proxySocket,
                         servername: targetUrl.hostname,
+                        rejectUnauthorized: false,
+                        checkServerIdentity: () => { },
                         ALPNProtocols: ['h2'],
                     });
 
@@ -88,20 +90,14 @@ const createProxyTunnel = (origin) => {
 };
 
 const createClient = async (origin) => {
-    if (!process.env.PROXY) {
-        return http2.connect(origin);
-    }
+    if (!process.env.PROXY) return http2.connect(origin);
 
     try {
         const socket = await createProxyTunnel(origin);
-
-        const client = http2.connect(origin, {
-            createConnection: () => socket
-        });
-
+        const client = http2.connect(origin, { createConnection: () => socket });
         return client;
     } catch (error) {
-        console.error('Failed to create client with proxy:', error);
+        console.error('failed to create client with proxy:', error);
         throw error;
     }
 };
