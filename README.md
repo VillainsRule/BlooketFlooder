@@ -1,5 +1,3 @@
-<br><hr><br>
-
 <div align="center">
     <h1>BlooketFlooderX ✨</h1>
     <h3>the released cloudflare-bypassing blooket botter</h3>
