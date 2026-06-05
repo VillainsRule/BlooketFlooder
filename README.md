@@ -14,7 +14,7 @@
 <br>
 
 ## installation
-1. install [bun](https://bun.sh) [node and deno DO NOT WORK due to INTERNAL LANGUAGE ISSUES (MUST BE BUN)]
+1. install [bun](https://bun.sh) (bun required to properly bypass cloudflare WAF)
 2. clone the repo: `git clone https://github.com/VillainsRule/BlooketFlooder && cd BlooketFlooder`
 3. install dependencies: `bun i`
 4. run `bun .` and enjoy!
